@@ -1,9 +1,10 @@
 ﻿
+using ApplicationCore.Entities;
+
 namespace HRTechProject.Entities
 {
-    public class Personel
+    public class Personel : BaseEntity
     {
-        public int Id { get; set; }
         public string FotografYolu { get; set; } = null!;
 
  
@@ -26,11 +27,6 @@ namespace HRTechProject.Entities
         public bool Aktiflik {  get; set; }
         public int MeslekId { get; set; }        
         public Meslek Meslek { get; set; } = null!;
-        public int DepartmanId { get; set; }
-        public Departman Departman { get; set; } = null!;
-        public int SirketId { get; set; }
-        public Sirket Sirket { get; set; } = null!;
-
 
         public string Email { get; set; } = null!;
         public Adres Adres { get; set; } = null!;

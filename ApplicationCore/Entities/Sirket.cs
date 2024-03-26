@@ -1,11 +1,12 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using ApplicationCore.Entities;
+using System.ComponentModel.DataAnnotations;
 
 namespace HRTechProject.Entities
 {
-    public class Sirket
+    public class Sirket : BaseEntity
     {
-        public int Id { get; set; }
 
-        public string Name { get; set; } = null!;        
+        public string Name { get; set; } = null!;
+        public List<Departman> Departmanlar { get; set; } = [];
     }
 }
