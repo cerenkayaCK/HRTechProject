@@ -1,0 +1,31 @@
+﻿@using HRTechProject.Entities
+@model Personel
+
+@{
+    ViewData["Title"] = "Personel Detayları";
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Personel Detayları</h5>
+                    <hr />
+                    <div>
+                        <p><strong>Ad:</strong> @Model.Ad</p>
+                        <p><strong>Soyad:</strong> @Model.Soyad</p>
+                        <p><strong>Doğum Tarihi:</strong> @Model.DogumTarihi.ToShortDateString()</p>
+                        <p><strong>Tc Kimlik No:</strong> @Model.TcNo</p>
+                        <p><strong>Email:</strong> @Model.Email</p>
+                        <p><strong>Telefon:</strong> @Model.Telefon</p>
+                        <p><strong>Maaş:</strong> @Model.Maas.ToString("C2")</p>
+                    </div>
+                    <div class="mt-4">
+                        <a href="@Url.Action("Index", "Personel")" class="btn btn-primary">Geri Dön</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
