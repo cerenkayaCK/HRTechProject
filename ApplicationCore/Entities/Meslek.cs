@@ -6,6 +6,7 @@ namespace HRTechProject.Entities
     public class Meslek : BaseEntity
     {
 
+        [Required(ErrorMessage = "Meslek adı boş bırakılamaz.")]
         public string Ad { get; set; } = null!;
         public List<Personel> Personeller { get; set; } = [];
         public List<Departman> Departmanlar { get; set; } = [];
