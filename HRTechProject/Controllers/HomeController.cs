@@ -1,4 +1,6 @@
+using HRTechProject.Entities;
 using HRTechProject.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -7,15 +9,18 @@ namespace HRTechProject.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly HttpClient _httpClient;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger,HttpClient httpClient)
         {
             _logger = logger;
+            _httpClient = httpClient;
         }
-
-        public IActionResult Index()
+        
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var personeller = await _httpClient.GetFromJsonAsync<List<Personel>>("https://localhost:7063/api/Personeller");
+            return View(personeller);
         }
 
         public IActionResult Privacy()
