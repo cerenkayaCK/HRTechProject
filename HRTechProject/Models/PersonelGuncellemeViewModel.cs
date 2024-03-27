@@ -7,8 +7,12 @@ namespace HRTechProject.Models
 {
     public class PersonelGuncellemeViewModel
     {
+        public int Id { get; set; }
+
         [GecerliResim]
         public IFormFile Fotograf { get; set; } = null!;
+
+        public string FotografYolu { get; set; } = null!;
         public Adres Adres { get; set; } = null!;
 
         [Required(ErrorMessage = "Alan boş bırakılamaz!")]
