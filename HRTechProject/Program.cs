@@ -1,4 +1,5 @@
 using HRTechProject.Data;
+using HRTechProject.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -19,9 +20,9 @@ namespace HRTechProject
                 options.UseSqlServer(connectionString));
             builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-            builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
-                .AddRoles<IdentityRole>()
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+            builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+                         .AddEntityFrameworkStores<ApplicationDbContext>()
+                         .AddDefaultTokenProviders();
 
             builder.Services.AddControllersWithViews();
             builder.Services.AddScoped<HttpClient>();

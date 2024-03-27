@@ -1,10 +1,12 @@
-﻿
-using ApplicationCore.Entities;
+﻿using ApplicationCore.Entities;
+using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.AspNetCore.Identity;
 
 namespace HRTechProject.Entities
 {
-    public class Personel : BaseEntity
+    public class Personel : IdentityUser<int>
     {
+       
         public string FotografYolu { get; set; } = null!;
 
  
@@ -28,7 +30,7 @@ namespace HRTechProject.Entities
         public int MeslekId { get; set; }        
         public Meslek Meslek { get; set; } = null!;
 
-        public string Email { get; set; } = null!;
+        //public string Email { get; set; } = null!;
         public Adres Adres { get; set; } = null!;
 
         public int AdresId { get; set; }
